@@ -14,6 +14,6 @@ rio_de_jan = Point(-22.9, -43.1667, 70)
 cairo = Point(30.1333, 31.4, 70)
 
 places = {'Los_Angeles': los_a, 'New_Delhi': new_delhi,
-          'London': london, 'Sydney': sydney, 'Rio_De_Janeiro': rio_de_jan, 'Ciaro': cairo}
-          
+          'London': london, 'Sydney': sydney, 'Rio_De_Janeiro': rio_de_jan, 'Cairo': cairo}
+
 
