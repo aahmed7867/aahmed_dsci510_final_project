@@ -16,4 +16,10 @@ cairo = Point(30.1333, 31.4, 70)
 places = {'Los_Angeles': los_a, 'New_Delhi': new_delhi,
           'London': london, 'Sydney': sydney, 'Rio_De_Janeiro': rio_de_jan, 'Cairo': cairo}
 
+for year in [2018, 2019, 2020]:  
+    for k in places:
+        data = Daily(places[k], datetime(year, 1, 1), datetime(year, 12, 31))
+        data = data.fetch()
+        data.to_csv(k+'_weather_data_'+str(year)+'.csv')
+
 
