@@ -32,3 +32,14 @@ def line_plot(df_dict, year, city, columns):
         plt.savefig('results/'+', '.join(columns) +
                     ' Variation over time '+str(year)+' in '+city+'.png', bbox_inches='tight')
     plt.show()
+
+
+def correlation_plot(df_dict, year, city):
+    sns.heatmap(df_dict[year][city].corr(),
+                annot=True)  
+    sns.set(rc={'figure.figsize': (10, 10)})
+    plt.title('Correlation between columns in ' +
+              str(year)+' - '+city+' dataframe')
+    plt.savefig('results/'+'Correlation between columns in ' +
+                str(year)+' - '+city+' dataframe.png', bbox_inches='tight')
+    plt.show()
