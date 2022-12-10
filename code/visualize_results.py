@@ -86,3 +86,5 @@ def scatter_plot(df_dict, year, city, cols):
         plt.savefig('results/'+', '.join(cols)+' Data distribution over time ' +
                     str(year)+' in '+city+'.png', bbox_inches='tight')
     plt.show()
+
+    # GitHub Repository Link - https://github.com/aahmed7867/aahmed_dsci510_final_project
