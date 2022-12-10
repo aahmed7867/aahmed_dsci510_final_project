@@ -43,3 +43,23 @@ def correlation_plot(df_dict, year, city):
     plt.savefig('results/'+'Correlation between columns in ' +
                 str(year)+' - '+city+' dataframe.png', bbox_inches='tight')
     plt.show()
+
+
+def scatter_plot(df_dict, year, city, cols):
+    sns.scatterplot(data=df_dict[year][city][cols]) 
+    sns.set(rc={'figure.figsize': (10, 10)})
+    plt.xlabel('Value Index')
+    plt.ylabel('Value')
+  
+    if year == 'alltime':
+        plt.title(', '.join(cols) +
+                  ' Data distribution over time 2018, 2019, 2020 in '+city)
+        plt.savefig('results/'+', '.join(cols) +
+                    ' Data distribution over time 2018, 2019, 2020 in '+city+'.png', bbox_inches='tight')
+
+    else:
+        plt.title(', '.join(cols)+' Data distribution over time ' +
+                  str(year)+' in '+city)
+        plt.savefig('results/'+', '.join(cols)+' Data distribution over time ' +
+                    str(year)+' in '+city+'.png', bbox_inches='tight')
+    plt.show()
