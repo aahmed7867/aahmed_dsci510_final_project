@@ -31,6 +31,10 @@ Run the following command in the Command Line Window to run the project:
 python code/main.py
 ```
 
+# GitHub Repository Link
+
+https://github.com/aahmed7867/aahmed_dsci510_final_project
+
 # Methodology
 
 - First, the data is loaded into data frames from the CSV files and stored in a dictionary data structure.
