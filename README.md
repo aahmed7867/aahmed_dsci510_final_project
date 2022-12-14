@@ -1,6 +1,5 @@
-# DSCI 510 - Final Project 
+# DSCI 510 Final Project Name- Impact of Global Warming on Weather Trends
 
-**Project name: Impact of Global Warming on Weather Trends**
 Global warming is one of the most discussed topics in the modern world. It has numerous dangerous effects on the planet, directly impacting the world's future. People are trying to identify the reasons for this and prevent it. Weather patterns all over the world have changed as a result of the causes of global warming. Analyzing weather data over several years will allow us to identify trends in weather variation caused by the global warming effect.
 
 # Dependencies
