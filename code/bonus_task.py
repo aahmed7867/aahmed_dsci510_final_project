@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import datetime
+import time
 
 # reading the data file and creating the dataframe
 df = pd.read_csv('data/Cairo_weather_data_2018.csv')
@@ -21,7 +22,7 @@ axes.xaxis.set_major_formatter(date_formatter)
 axes.xaxis.set_major_locator(date_locator)
 
 for i in range(120):
-    # plotting the data in the figure as a simulation
+    # plotting data in the figure as a simulation
     dates_main.append([datetime.datetime.strptime(d, "%Y-%m-%d")
                        for d in df['time'].values.tolist()][i])
     y1_main.append(df['tmin'].values.tolist()[i])
@@ -35,7 +36,8 @@ for i in range(120):
     # defining plot parameters
     axes.set_xlabel('Date', fontsize=18)
     axes.set_ylabel('Temperature value', fontsize=18)
-    axes.set_title('Temperature variation in Cairo city in January-May 2018', fontsize=20)
+    axes.set_title(
+        'Temperature variation in Cairo city in January-May 2018', fontsize=20)
     axes.legend(['Tmin', 'Tavg', 'Tmax'])
     axes.annotate('tmin-'+str(y1_main[-1]),
                   xy=(dates_main[-1], y1_main[-1]+0.5))
@@ -46,4 +48,5 @@ for i in range(120):
     plt.pause(0.5)  # pausing the ploting for a short time
 
 plt.savefig('results/bonus_task_plot.png', bbox_inches='tight')
+time.sleep(10)
 plt.show()
