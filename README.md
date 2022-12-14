@@ -43,6 +43,7 @@ https://github.com/aahmed7867/aahmed_dsci510_final_project
 - A function is defined to find the maximum "n" records of a data frame with respect to a column. The data frame is selected by the year and city names.
 - A function is defined to find the minimum "n" records of a data frame with respect to a column. The data frame is selected by the year and city names.
 - According to the analysis procedure, the aforementioned minimum and maximum record-finding functions can be used in the main code.
+- 
 
 # Visualization
 
