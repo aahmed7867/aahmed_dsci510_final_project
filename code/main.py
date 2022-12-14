@@ -12,13 +12,48 @@ def main():
     # combining dataframes and making the 'alltime' dictionaries
     dfs = combine_df_city(dfs)
 
-    # as an example, the following operations are simulated
+    cities = ['Los_Angeles', 'New_Delhi', 'London',
+              'Sydney', 'Rio_De_Janeiro', 'Cairo']
 
-    # finding maximum records in Cairo city for 'alltime' time range
-    print(max_n_param_in_city(dfs, 'tavg', 'Cairo', 'alltime', 10))
+    max_records = {'Los_Angeles': {}, 'New_Delhi': {},
+                   'London': {}, 'Sydney': {}, 'Rio_De_Janeiro': {}, 'Cairo': {}}
+    for city in cities:
+        # finding the maximum 5 records for each city in 'alltime' time range
+        available_columns = dfs['alltime'][city].columns
+        for col in list(available_columns)[1:]:
+            df_max = max_n_param_in_city(
+                dfs, col, city, 'alltime', 1)
+
+            max_records[city][col] = df_max[col].values[0]
+
+    print('Maximum "tavg" values for the 6 cities in each year.\n')
+    for city in cities:
+        for y in range(2018, 2021):
+            df_max = max_n_param_in_city(
+                dfs, 'tavg', city, y, 1)
+
+            print('Maximum "tavg" in', city, 'in the year',
+                  y, 'is', df_max['tavg'].values[0])
+
+        print()
+
+    print('Minimum "tavg" values for the 6 cities in each year.\n')
+    for city in cities:
+        for y in range(2018, 2021):
+            df_min = min_n_param_in_city(
+                dfs, 'tavg', city, y, 1)
+
+            print('Minimum "tavg" in', city, 'in the year',
+                  y, 'is', df_min['tavg'].values[0])
+
+        print()
+
+    bar_plot(max_records)
     # making some plots
-    line_plot(dfs, 'alltime', 'Los_Angeles', ['tavg', 'wspd'])
-    correlation_plot(dfs, 2020, 'Los_Angeles')
-    scatter_plot(dfs, 2020, 'Sydney', ['tmin', 'tavg', 'tmax'])
+
+    line_plot(dfs, 'alltime', cities, ['tavg'])
+    # correlation_plot(dfs, 2020, 'Los_Angeles')
+    scatter_plot(dfs, 'alltime', 'Sydney', ['tmin', 'tavg', 'tmax'])
+
 
 main()
