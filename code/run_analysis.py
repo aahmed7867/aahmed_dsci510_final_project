@@ -4,18 +4,20 @@ import os
 
 def read_csv_files():
     '''
-    This function reads all the CSV files in the specified folder and make dataframes from them.
+    This function reads all the CSV files in the specified folder and makes dataframes from them.
     These  dataframes are stored in a dictionary by using year and city as keys.
     '''
-    csv_files_list = os.listdir('data/')    # CSV file list
+    csv_files_list = os.listdir('data/')    # getting CSV file list
     df_dict = {2018: {}, 2019: {}, 2020: {}}    # output dictionary
     for fname in csv_files_list:
         # reading each CSV file and converting them into dataframes
         df = pd.read_csv('data/'+fname)
-        df.dropna(axis=1, inplace=True) # dropping null columns
-        city = fname[0:-22] # getting the city name from the file name
-        year = int(fname.split('.')[0].split('_')[-1]) # getting the year from the file name
-        df_dict[year][city] = df   # storing the dataframe
+        # df.dropna(axis=1, inplace=True)  # dropping null columns
+        df.fillna(0, inplace=True)  # filling null values
+        city = fname[0:-22]  # getting the city name from the file name
+        # getting the year from the file name
+        year = int(fname.split('.')[0].split('_')[-1])
+        df_dict[year][city] = df    # storing the dataframe
 
     return df_dict
 
@@ -23,7 +25,7 @@ def read_csv_files():
 def combine_df_city(df_dict):
     '''
     This function combines all three dataframes (2018, 2019, 2020) for each city and 
-    store them using 'alltime' and city as keys.
+    stores them using 'alltime' and city as keys.
     '''
     df_dict['alltime'] = dict()
     for city in df_dict[2018].keys():
@@ -42,7 +44,7 @@ def max_n_param_in_city(df_dict, param, city, year, n):
     return df.iloc[0:n, :]
 
 
-def min_n_param_in_cityr(df_dict, param, city, year, n):
+def min_n_param_in_city(df_dict, param, city, year, n):
     '''
     This function finds the minimum n records of a parameter in the specified dataframe by year and city.
     '''
