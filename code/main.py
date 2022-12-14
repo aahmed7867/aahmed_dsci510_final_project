@@ -1,5 +1,6 @@
 from get_data import *
 from run_analysis import *
+from bonus_task import *
 from visualize_results import *
 
 
@@ -18,7 +19,7 @@ def main():
     max_records = {'Los_Angeles': {}, 'New_Delhi': {},
                    'London': {}, 'Sydney': {}, 'Rio_De_Janeiro': {}, 'Cairo': {}}
     for city in cities:
-        # finding the maximum 5 records for each city in 'alltime' time range
+        # finding maximum 5 records for each city in 'alltime' time range
         available_columns = dfs['alltime'][city].columns
         for col in list(available_columns)[1:]:
             df_max = max_n_param_in_city(
@@ -52,8 +53,9 @@ def main():
     # making some plots
 
     line_plot(dfs, 'alltime', cities, ['tavg'])
-    # correlation_plot(dfs, 2020, 'Los_Angeles')
+    correlation_plot(dfs, 2020, 'Los_Angeles')
     scatter_plot(dfs, 'alltime', 'Sydney', ['tmin', 'tavg', 'tmax'])
+    bonus_plot()
 
 
 main()
