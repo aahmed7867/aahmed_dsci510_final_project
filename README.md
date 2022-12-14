@@ -16,7 +16,7 @@ The following Python libraries are used in this project:
 
 # Installation
 
-Run following command in Command Line Window to install the requirements necessary to run your project:
+Run the following command in the Command Line Window to install the project requirements:
 
 ```
 pip install -r requirements.txt
@@ -24,7 +24,7 @@ pip install -r requirements.txt
 
 # Running the project
 
-Run following command in Command Line Window to run the project:
+Run the following command in the Command Line Window to run the project:
 
 ```
 python code/main.py
@@ -51,4 +51,4 @@ python code/main.py
 
 # Future Work
 
-> Given more time, what is the direction that you would want to take this project in?
+> As a future expansion, we can collect data for more years in more cities around the world and use it for analysis. Also, we can use the other weather parameters except “tavg” for the processing. This will be helpful to identify the global warming effect on weather parameters in a very accurate manner.
